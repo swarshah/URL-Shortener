@@ -8,9 +8,8 @@
     </div>
     <div class="form-inline" style="text-align: center">
         <label for="ContentPlaceHolder1_url">Enter URL:</label>
-        <asp:TextBox id="url" runat="server" class="form-control"></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" Text="Button" class="btn btn-primary"/>
+        <asp:TextBox id="url" runat="server" class="form-control" placeholder="Enter your long URL here."></asp:TextBox>
+        <asp:Button ID="Button1" runat="server" Text="Button" class="btn btn-primary" OnClick="Button1_Click"/>
     </div>
-
 </asp:Content>
 
