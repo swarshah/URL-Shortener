@@ -11,5 +11,6 @@
         <asp:TextBox id="url" runat="server" class="form-control" placeholder="Enter your long URL here."></asp:TextBox>
         <asp:Button ID="Button1" runat="server" Text="Button" class="btn btn-primary" OnClick="Button1_Click"/>
     </div>
+    <asp:Label ID="shortLink" runat="server" Text=""></asp:Label>
 </asp:Content>
 
