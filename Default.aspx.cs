@@ -19,9 +19,10 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        //int id = getid();
+        int id = getid();
         //shortLink.Text = id.ToString();
         shortLink.Text = encodeInt(getid());
+        //shortLink.Text = HttpContext.Current.Request.Url.ToString();
     }
 
     protected int getid()
@@ -44,6 +45,11 @@ public partial class _Default : System.Web.UI.Page
             sb.Insert(0, ALPHABET[num % length]);
             num = num / length;
         }
-        return sb.ToString();
+        return "http://"+
+                HttpContext.Current.Request.Url.Host.ToString()+
+                ":"+
+                HttpContext.Current.Request.Url.Port.ToString()+
+                "/"+
+                sb.ToString();
     }
 }
