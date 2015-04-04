@@ -20,9 +20,16 @@ public partial class _Default : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         int id = getid();
-        //shortLink.Text = id.ToString();
-        shortLink.Text = encodeInt(getid());
-        //shortLink.Text = HttpContext.Current.Request.Url.ToString();
+        String shortUrl = encodeInt(getid());
+        int result = insertInDb(id, shortUrl, url.Text);
+        if (result == 1)
+        {
+            shortLink.Text = shortUrl;
+        }
+        else
+        {
+            shortUrl = "Error";
+        }
     }
 
     protected int getid()
@@ -51,5 +58,21 @@ public partial class _Default : System.Web.UI.Page
                 HttpContext.Current.Request.Url.Port.ToString()+
                 "/"+
                 sb.ToString();
+    }
+
+    protected int insertInDb(int id, String shorturl, String longurl)
+    {
+        using (SqlConnection cn = new SqlConnection(connectionString))
+        {
+            SqlCommand cmd = new SqlCommand("INSERT INTO link(Id, longUrl, shortUrl) Values(@Id, @longUrl, @shortUrl)", cn);
+
+            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.Parameters.AddWithValue("@longUrl", longurl);
+            cmd.Parameters.AddWithValue("@shortUrl", shorturl);
+            cn.Open();
+            int result = cmd.ExecuteNonQuery();
+            cn.Close();
+            return result;
+        }
     }
 }
