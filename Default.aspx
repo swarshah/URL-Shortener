@@ -15,6 +15,10 @@
         </div>
         
     </div>
+    <div class="alert alert-danger" role="alert" visible="false" runat="server" id="error">
+        <asp:Label ID="Label1" runat="server" class="center-block"></asp:Label>
+    </div>
+    
     <asp:Button ID="Button1" runat="server" Text="Submit" class="btn btn-primary center-block" OnClick="Button1_Click"/>
    <!-- <div class="jumbotron" id="linkdiv1" runat="server" visible="false">
         <asp:TextBox ID="shortLink1" runat="server" class="form-control center-block" ReadOnly="True" Visible="False" style ="width: auto"></asp:TextBox>
