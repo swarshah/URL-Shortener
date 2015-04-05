@@ -10,14 +10,18 @@
         <div class="form-group">
             <label for="ContentPlaceHolder1_url" class="col-sm-2 control-label">Enter URL:</label>
             <div class="col-sm-10">
-            <asp:TextBox id="url" runat="server" class="form-control" placeholder="Enter your long URL here."></asp:TextBox>
-                </div>
+                <asp:TextBox id="url" runat="server" class="form-control" placeholder="Enter your long URL here."></asp:TextBox>
+            </div>
         </div>
         
     </div>
     <asp:Button ID="Button1" runat="server" Text="Submit" class="btn btn-primary center-block" OnClick="Button1_Click"/>
-    <div class="jumbotron" id="linkdiv" runat="server" visible="false">
-        <asp:TextBox ID="shortLink" runat="server" class="form-control center-block" ReadOnly="True" Visible="False" style ="width: auto"></asp:TextBox>
+   <!-- <div class="jumbotron" id="linkdiv1" runat="server" visible="false">
+        <asp:TextBox ID="shortLink1" runat="server" class="form-control center-block" ReadOnly="True" Visible="False" style ="width: auto"></asp:TextBox>
+    </div>
+    -->
+    <div class="alert alert-success form-horizontal jumbotron" id="linkdiv" runat="server" visible="false">
+        <strong>Well done!</strong> You have successfully shorted your link <asp:TextBox ID="shortLink" runat="server" class="form-control" ReadOnly="True" Visible="False"></asp:TextBox> 
     </div>
 </asp:Content>
 
