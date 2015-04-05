@@ -17,7 +17,7 @@
     </div>
     <asp:Button ID="Button1" runat="server" Text="Submit" class="btn btn-primary center-block" OnClick="Button1_Click"/>
     <div class="jumbotron" id="linkdiv" runat="server" visible="false">
-        <asp:TextBox ID="shortLink" runat="server" class="form-control" ReadOnly="True" Visible="False"></asp:TextBox>
+        <asp:TextBox ID="shortLink" runat="server" class="form-control center-block" ReadOnly="True" Visible="False" style ="width: auto"></asp:TextBox>
     </div>
 </asp:Content>
 
