@@ -40,13 +40,21 @@
 
         String query = HttpContext.Current.Request.Url.PathAndQuery.ToString();
         //String host = HttpContext.Current.Request.Url.Query.ToString();
-        if (!query.Equals("/default.aspx") && !query.StartsWith("/__browserLink/requestData/") && !query.Equals("/"))
+        if (!query.Equals("/default.aspx") && !query.StartsWith("/__browserLink/requestData/") && !query.Equals("/") && !query.ToLower().Equals("/invalid.aspx"))
         {
             //System.Diagnostics.Debug.WriteLine(HttpContext.Current.Request.Url.PathAndQuery.ToString());
             //Response.Redirect("Default2.aspx");
             String redirectUrl = MyUtils.getLongURL(query);
-            Response.Status = "301 Moved Permanently";
-            Response.AddHeader("Location", redirectUrl);
+            if (redirectUrl.Equals("404"))
+            {
+                Response.Status = "301 Moved Permanently";
+                Response.AddHeader("Location", "Invalid.aspx");
+            }
+            else
+            {
+                Response.Status = "301 Moved Permanently";
+                Response.AddHeader("Location", redirectUrl);
+            }
             System.Diagnostics.Debug.WriteLine(HttpContext.Current.Request.Url.PathAndQuery.ToString());
         }
     }
