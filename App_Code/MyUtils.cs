@@ -64,4 +64,13 @@ public class MyUtils
             return result;
         }
     }
+
+    public static int decodeInt(String str){
+        int num = 0;
+        for (int i = 0; i < str.Length; i++)
+        {
+            num = num * ALPHABET.Length + ALPHABET.IndexOf(str[i]);
+        }
+        return num;
+    }
 }
