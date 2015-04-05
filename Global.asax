@@ -34,5 +34,20 @@
         // or SQLServer, the event is not raised.
 
     }
+
+    void Application_BeginRequest(object sender, EventArgs e)
+    {
+
+        String query = HttpContext.Current.Request.Url.PathAndQuery.ToString();
+        //String host = HttpContext.Current.Request.Url.Query.ToString();
+        if (!query.Equals("/default.aspx") && !query.StartsWith("/__browserLink/requestData/") && !query.Equals("/"))
+        {
+            //System.Diagnostics.Debug.WriteLine(HttpContext.Current.Request.Url.PathAndQuery.ToString());
+            //Response.Redirect("Default2.aspx");
+            Response.Status = "301 Moved Permanently";
+            Response.AddHeader("Location", "/Default2.aspx?id=" + query);
+            System.Diagnostics.Debug.WriteLine(HttpContext.Current.Request.Url.PathAndQuery.ToString());
+        }
+    }
        
 </script>
