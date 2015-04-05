@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Configuration;
 using System.Text;
+using System.Text.RegularExpressions;
 /// <summary>
 /// Summary description for MyUtils
 /// </summary>
@@ -94,5 +95,16 @@ public class MyUtils
             }
             
         }
+    }
+
+    public static Boolean matchUrl(String s)
+    {
+        MatchCollection mc = Regex.Matches(s, @"http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?");
+        Boolean b = false;
+        foreach (Match m in mc)
+        {
+            b = true;
+        }
+        return b;
     }
 }
