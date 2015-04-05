@@ -54,7 +54,6 @@ public class MyUtils
         using (SqlConnection cn = new SqlConnection(connectionString))
         {
             SqlCommand cmd = new SqlCommand("INSERT INTO link(Id, longUrl, shortUrl) Values(@Id, @longUrl, @shortUrl)", cn);
-
             cmd.Parameters.AddWithValue("@Id", id);
             cmd.Parameters.AddWithValue("@longUrl", longurl);
             cmd.Parameters.AddWithValue("@shortUrl", shorturl);
@@ -83,9 +82,17 @@ public class MyUtils
             SqlCommand cmd = new SqlCommand("SELECT longUrl from link where Id = @Id", cn);
             cmd.Parameters.AddWithValue("@Id", id);
             cn.Open();
-            String url = cmd.ExecuteScalar().ToString();
-            cn.Close();
-            return url;
+            try { 
+                    String url = cmd.ExecuteScalar().ToString();
+                    cn.Close();
+                    return url;
+            }
+            catch (NullReferenceException nre)
+            {
+                cn.Close();
+                return "404";
+            }
+            
         }
     }
 }
