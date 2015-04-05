@@ -73,4 +73,19 @@ public class MyUtils
         }
         return num;
     }
+
+    public static String getLongURL(String shortId)
+    {
+        int id = decodeInt(shortId.Substring(1,shortId.Length-1));
+        System.Diagnostics.Debug.WriteLine("Passing " + shortId.Substring(1, shortId.Length - 1) +" Id = "+id);
+        using (SqlConnection cn = new SqlConnection(connectionString))
+        {
+            SqlCommand cmd = new SqlCommand("SELECT longUrl from link where Id = @Id", cn);
+            cmd.Parameters.AddWithValue("@Id", id);
+            cn.Open();
+            String url = cmd.ExecuteScalar().ToString();
+            cn.Close();
+            return url;
+        }
+    }
 }
