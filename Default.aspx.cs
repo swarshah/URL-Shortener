@@ -19,12 +19,14 @@ public partial class _Default : System.Web.UI.Page
         if (result == 1)
         {
             shortLink.Text = shortUrl;
+            shortLink.Visible = true;
+            linkdiv.Visible = true;
+            shortLink.Attributes.Add("onclick","this.select();");
         }
         else
         {
             shortLink.Text = "Error";
         }
-        shortLink.Visible = true; 
     }
 
     

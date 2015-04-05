@@ -16,7 +16,7 @@
         
     </div>
     <asp:Button ID="Button1" runat="server" Text="Submit" class="btn btn-primary center-block" OnClick="Button1_Click"/>
-    <div class="jumbotron">
+    <div class="jumbotron" id="linkdiv" runat="server" visible="false">
         <asp:TextBox ID="shortLink" runat="server" class="form-control" ReadOnly="True" Visible="False"></asp:TextBox>
     </div>
 </asp:Content>
