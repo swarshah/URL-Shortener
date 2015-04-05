@@ -55,7 +55,7 @@
                 Response.Status = "301 Moved Permanently";
                 Response.AddHeader("Location", redirectUrl);
             }
-            System.Diagnostics.Debug.WriteLine(HttpContext.Current.Request.Url.PathAndQuery.ToString());
+            //System.Diagnostics.Debug.WriteLine(HttpContext.Current.Request.Url.PathAndQuery.ToString());
         }
     }
        

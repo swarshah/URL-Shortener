@@ -6,11 +6,18 @@
     <div style="margin:0 auto; text-align:center">
         <h2><b>URL Shorting Made Easy</b></h2>
     </div>
-    <div class="form-inline" style="text-align: center">
-        <label for="ContentPlaceHolder1_url">Enter URL:</label>
-        <asp:TextBox id="url" runat="server" class="form-control" placeholder="Enter your long URL here."></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" Text="Button" class="btn btn-primary" OnClick="Button1_Click"/>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="ContentPlaceHolder1_url" class="col-sm-2 control-label">Enter URL:</label>
+            <div class="col-sm-10">
+            <asp:TextBox id="url" runat="server" class="form-control" placeholder="Enter your long URL here."></asp:TextBox>
+                </div>
+        </div>
+        
     </div>
-    <asp:Label ID="shortLink" runat="server" Text=""></asp:Label>
+    <asp:Button ID="Button1" runat="server" Text="Submit" class="btn btn-primary center-block" OnClick="Button1_Click"/>
+    <div class="jumbotron">
+        <asp:TextBox ID="shortLink" runat="server" class="form-control" ReadOnly="True" Visible="False"></asp:TextBox>
+    </div>
 </asp:Content>
 

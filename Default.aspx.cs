@@ -22,8 +22,9 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
-            shortUrl = "Error";
+            shortLink.Text = "Error";
         }
+        shortLink.Visible = true; 
     }
 
     
