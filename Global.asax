@@ -44,8 +44,9 @@
         {
             //System.Diagnostics.Debug.WriteLine(HttpContext.Current.Request.Url.PathAndQuery.ToString());
             //Response.Redirect("Default2.aspx");
+            String redirectUrl = MyUtils.getLongURL(query);
             Response.Status = "301 Moved Permanently";
-            Response.AddHeader("Location", "/Default2.aspx?id=" + query);
+            Response.AddHeader("Location", redirectUrl);
             System.Diagnostics.Debug.WriteLine(HttpContext.Current.Request.Url.PathAndQuery.ToString());
         }
     }
